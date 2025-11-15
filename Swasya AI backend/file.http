@@ -1,0 +1,7 @@
+### Test Gemini Summarize
+POST http://localhost:3000/gemini/summarize
+Content-Type: application/json
+
+{
+  "text": "Artificial intelligence is revolutionizing healthcare by enabling faster diagnosis, personalized treatment plans, and predictive analytics. Machine learning algorithms analyze medical images, detect patterns in patient data, and assist doctors in making informed decisions. This technology is improving patient outcomes and reducing healthcare costs globally."
+}

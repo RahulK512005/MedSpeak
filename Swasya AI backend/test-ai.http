@@ -1,0 +1,50 @@
+### Test Ollama Status
+GET http://localhost:3000/ollama/status
+
+### Test Gemini Status  
+GET http://localhost:3000/gemini/status
+
+### Test Unified AI Status
+GET http://localhost:3000/ai/status
+
+### Test Ollama Summarization
+POST http://localhost:3000/ollama/summarize
+Content-Type: application/json
+
+{
+  "text": "Artificial intelligence (AI) is intelligence demonstrated by machines, in contrast to the natural intelligence displayed by humans and animals. Leading AI textbooks define the field as the study of intelligent agents: any device that perceives its environment and takes actions that maximize its chance of successfully achieving its goals."
+}
+
+### Test Gemini Summarization (existing)
+POST http://localhost:3000/gemini/summarize
+Content-Type: application/json
+
+{
+  "text": "Artificial intelligence (AI) is intelligence demonstrated by machines, in contrast to the natural intelligence displayed by humans and animals. Leading AI textbooks define the field as the study of intelligent agents: any device that perceives its environment and takes actions that maximize its chance of successfully achieving its goals."
+}
+
+### Test Unified AI Summarization (Auto - tries Ollama first, fallback to Gemini)
+POST http://localhost:3000/ai/summarize
+Content-Type: application/json
+
+{
+  "text": "Artificial intelligence (AI) is intelligence demonstrated by machines, in contrast to the natural intelligence displayed by humans and animals. Leading AI textbooks define the field as the study of intelligent agents: any device that perceives its environment and takes actions that maximize its chance of successfully achieving its goals."
+}
+
+### Test Unified AI with specific provider (Ollama only)
+POST http://localhost:3000/ai/summarize
+Content-Type: application/json
+
+{
+  "text": "Machine learning is a method of data analysis that automates analytical model building. It is a branch of artificial intelligence based on the idea that systems can learn from data, identify patterns and make decisions with minimal human intervention.",
+  "provider": "ollama"
+}
+
+### Test Unified AI with specific provider (Gemini only)
+POST http://localhost:3000/ai/summarize
+Content-Type: application/json
+
+{
+  "text": "Machine learning is a method of data analysis that automates analytical model building. It is a branch of artificial intelligence based on the idea that systems can learn from data, identify patterns and make decisions with minimal human intervention.",
+  "provider": "gemini"
+}
